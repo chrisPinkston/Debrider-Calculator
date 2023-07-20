@@ -71,10 +71,7 @@
 
       
      function calculateRevenue() {
-        // Get the input values from the form
-        const withToolRevenue = parseFloat(document.getElementById('withTool').value);
-        const withoutToolRevenue = parseFloat(document.getElementById('withoutTool').value);
-
+       
         const NumDebrides = parseFloat(document.getElementById('debridmentsDay').value);
          
           const DocPay = parseFloat(document.getElementById('doctorPay').value);
@@ -89,16 +86,16 @@
 
         // Perform the calculation
          
-        const payrollWeek = (NumNurse * NursePay)+(NumDocter * DocPay)+(NumTech * TechPay)+(NumRn * RnPay) * 30
+        const payrollWeek = (NumNurse * NursePay)+(NumDocter * DocPay)+(NumTech * TechPay)+(NumRn * RnPay) * 30;
          
-        const NumEmployee = NumNurse + NumDocter + NumTech + NumRn
+        const NumEmployee = NumNurse + NumDocter + NumTech + NumRn;
          
-        const revenueWith = ((76 * 30) * NumEmployee) * 30 // 30 hours per week
-        const revenueWithout = ((76 * 8.5) * NumEmployee) * 30 // 30 hours per week
+        const revenueWith = ((76 * 30) * NumEmployee) * 30; // 30 hours per week
+        const revenueWithout = ((76 * 8.5) * NumEmployee) * 30; // 30 hours per week
 
-         const profitWith = revenueWith - payrollWeek
-         const profitWithout = revenueWithout - payrollWeek
-        const revenueDifference = withToolRevenue - withoutToolRevenue;
+         const profitWith = revenueWith - payrollWeek;
+         const profitWithout = revenueWithout - payrollWeek;
+        const revenueDifference = profitWith - profitWithout;
 
         // Display the result
         document.getElementById('revenueWith').innerText = `Profit With EZ-Debride: $${profitWith.toFixed(2)}`;
