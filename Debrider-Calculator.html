@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medical Tool Calculator</title>
+</head>
+<body>
+    <h1>Medical Tool Revenue Calculator</h1>
+    <form id="calculatorForm">
+        <!-- Add input fields and labels here for user input -->
+        <label for="withTool">Revenue with Medical Tool:</label>
+        <input type="number" id="withTool" name="withTool" required><br>
+        
+        <label for="withoutTool">Revenue without Medical Tool:</label>
+        <input type="number" id="withoutTool" name="withoutTool" required><br>
+
+        <button type="button" onclick="calculateRevenue()">Calculate</button>
+    </form>
+
+    <p id="result"></p>
+
+    <!-- Add your JavaScript code here -->
+   
+  <script>
+     function calculateRevenue() {
+        // Get the input values from the form
+        const withToolRevenue = parseFloat(document.getElementById('withTool').value);
+        const withoutToolRevenue = parseFloat(document.getElementById('withoutTool').value);
+
+        // Perform the calculation
+        const revenueDifference = withToolRevenue - withoutToolRevenue;
+
+        // Display the result
+        document.getElementById('result').innerText = `Revenue Difference: $${revenueDifference.toFixed(2)}`;
+    }
+</script>
+
+</body>
+</html>
