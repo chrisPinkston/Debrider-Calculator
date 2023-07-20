@@ -57,6 +57,7 @@
         <input type="radio" id="curettes" name="tools" value="curettes">
         <label for="curettes">Curettes</label><br>
         
+    
 
         <button type="button" onclick="calculateRevenue()">Calculate</button>
     </form>
@@ -70,7 +71,6 @@
 
       
      function calculateRevenue() {
-        // Get the input values from the form
        
         const NumDebrides = parseFloat(document.getElementById('debridementsDay').value);
          
@@ -90,12 +90,26 @@
          
         const NumEmployee = NumNurse + NumDocter + NumTech + NumRn;
          
-        const revenueWith = ((76 * 30) * NumEmployee) * 30 ;// 30 hours per week
-        const revenueWithout = ((76 * 8.5) * NumEmployee) * 30 ;// 30 hours per week
+        const revenueWith = ((76 * 30) * NumEmployee) * 30; // 30 hours per week
+        const revenueWithout = ((76 * 8.5) * NumEmployee) * 30; // 30 hours per week
 
-         const profitWith = revenueWith - payrollWeek;
-         const profitWithout = revenueWithout - payrollWeek;
+        const profitWith = revenueWith - payrollWeek;
+        const profitWithout = revenueWithout - payrollWeek;
         const revenueDifference = profitWith - profitWithout;
+
+console.log("NumDebrides:", NumDebrides);
+console.log("NumNurse:", NumNurse);
+console.log("NumDocter:", NumDocter);
+console.log("NumTech:", NumTech);
+console.log("NumRn:", NumRn);
+console.log("payrollWeek:", payrollWeek);
+console.log("revenueWith:", revenueWith);
+console.log("revenueWithout:", revenueWithout);
+console.log("profitWith:", profitWith);
+console.log("profitWithout:", profitWithout);
+console.log("revenueDifference:", revenueDifference);
+
+        
         // Display the result
         document.getElementById('revenueWith').innerText = `Profit With EZ-Debride: $${profitWith.toFixed(2)}`;
         document.getElementById('revenueWithout').innerText = `Profit Without EZ-Debride: $${profitWithout.toFixed(2)}`;
