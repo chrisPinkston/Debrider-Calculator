@@ -62,8 +62,8 @@
         <button type="button" onclick="calculateRevenue()">Calculate</button>
     </form>
 
-     <p id="revenueWith"></p>
-     <p id="revenueWithout"></p>
+     <p id="revenueOne"></p>
+     <p id="revenueTwo"></p>
      <p id="result"></p>
     <!-- Add your JavaScript code here -->
    
@@ -111,8 +111,8 @@ console.log("revenueDifference:", revenueDifference);
 
         
         // Display the result
-        document.getElementById('revenueWith').innerText = `Profit With EZ-Debride: $${profitWith.toFixed(2)}`;
-        document.getElementById('revenueWithout').innerText = `Profit Without EZ-Debride: $${profitWithout.toFixed(2)}`;
+        document.getElementById('revenueOne').innerText = `Profit With EZ-Debride: $${profitWith.toFixed(2)}`;
+        document.getElementById('revenueTwo').innerText = `Profit Without EZ-Debride: $${profitWithout.toFixed(2)}`;
         document.getElementById('result').innerText = `Revenue Difference: $${revenueDifference.toFixed(2)}`;
     }
 </script>
