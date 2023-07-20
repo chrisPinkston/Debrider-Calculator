@@ -97,6 +97,19 @@
         const profitWithout = revenueWithout - payrollWeek;
         const revenueDifference = profitWith - profitWithout;
 
+console.log("NumDebrides:", NumDebrides);
+console.log("NumNurse:", NumNurse);
+console.log("NumDocter:", NumDocter);
+console.log("NumTech:", NumTech);
+console.log("NumRn:", NumRn);
+console.log("payrollWeek:", payrollWeek);
+console.log("revenueWith:", revenueWith);
+console.log("revenueWithout:", revenueWithout);
+console.log("profitWith:", profitWith);
+console.log("profitWithout:", profitWithout);
+console.log("revenueDifference:", revenueDifference);
+
+        
         // Display the result
         document.getElementById('revenueWith').innerText = `Profit With EZ-Debride: $${profitWith.toFixed(2)}`;
         document.getElementById('revenueWithout').innerText = `Profit Without EZ-Debride: $${profitWithout.toFixed(2)}`;
