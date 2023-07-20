@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Salibas Debrider Calculator</title>
+    <title>M&D Debrider Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <h1>M&D Debrider Calculator</h1>
-    <h2>By Saliba</h2>
+    
+    <h1>M&D Debrider Calculator</h1>
+    <h1>By Saliba Atallah</h1>
+    
     <form id="calculatorForm">
         <!-- Add input fields and labels here for user input -->
+            <label for="woundPatients">How many wound care patients do you see in a day?</label>
+            <input type="number" id="woundPatients" required><br>
+
+            <label for="debridementsDay">How many debridements are done in a day?</label>
+            <input type="number" id="debridementsDay" required><br>
+
+            <label for="debridementsHour">How many debridements can be done in an hour? (Current State)</label>
+            <input type="number" id="debridementsHour" step="0.1" required><br>
+
+            <label for="doctors">How many doctors are on staff?</label>
+            <input type="number" id="doctors" required><br>
+
+            <label for="rns">How many RNs are on staff?</label>
+            <input type="number" id="rns" required><br>
+
+            <label for="nurses">How many nurses are on staff?</label>
+            <input type="number" id="nurses" required><br>
+
+            <label for="techs">How many techs are on staff?</label>
+            <input type="number" id="techs" required><br>
+
+        <label>Do you use scapels or curettes?</label><br>
+        <input type="radio" id="scapels" name="tools" value="scapels">
+        <label for="scapels">Scapels</label>
+        <input type="radio" id="curettes" name="tools" value="curettes">
+        <label for="curettes">Curettes</label><br>
+        
         <label for="withTool">Revenue with Medical Tool:</label>
         <input type="number" id="withTool" name="withTool" required><br>
         
