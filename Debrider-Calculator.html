@@ -9,22 +9,22 @@
     <h1>M&D Debrider Calculator</h1>
     <h3>By Saliba </h3>
 
-   <!-- Fixed variables section -->
+     <!-- Fixed variables section -->
         <section id="fixedVariables">
             <h2>Fixed Variables</h2>
             <p>
                 <strong>Pay</strong><br>
-                Doctor: <span class="redText">$103.73</span><br>
-                RN: <span class="redText">$37.56</span><br>
-                Nurse: <span class="redText">$31.57</span><br>
-                Tech: <span class="redText">$17.88</span><br>
+                Doctor: <span class="redText" id="doctorPay">$103.73</span><br>
+                RN: <span class="redText" id="RnPay">$37.56</span><br>
+                Nurse: <span class="redText" id="NursePay">$31.57</span><br>
+                Tech: <span class="redText" id="TechPay">$17.88</span><br>
             </p>
 
             <p>
                 <strong>Equipment</strong><br>
-                Curettes: <span class="redText">$6.00</span><br>
-                Scapels: <span class="redText">$6.00</span><br>
-                Ezdebride: <span class="redText">$19.99</span><br>
+                Curettes: <span class="redText" id="CurretCost">$6.00</span><br>
+                Scapels: <span class="redText" id="ScalpleCost">$6.00</span><br>
+                Ezdebride: <span class="redText" id="DebrideCost">$19.99</span><br>
             </p>
         </section>
     
@@ -66,20 +66,47 @@
         <button type="button" onclick="calculateRevenue()">Calculate</button>
     </form>
 
-    <p id="result"></p>
-
+     <p id="revenueWith"></p>
+     <p id="revenueWithout"></p>
+     <p id="result"></p>
     <!-- Add your JavaScript code here -->
    
   <script>
+
+      
      function calculateRevenue() {
         // Get the input values from the form
         const withToolRevenue = parseFloat(document.getElementById('withTool').value);
         const withoutToolRevenue = parseFloat(document.getElementById('withoutTool').value);
 
+        const NumDebrides = parseFloat(document.getElementById('debridmentsDay').value);
+         
+          const DocPay = parseFloat(document.getElementById('doctorPay').value);
+          const NursePay = parseFloat(document.getElementById('NursePay').value);
+          const TechPay = parseFloat(document.getElementById('TechPay').value);
+          const RnPay = parseFloat(document.getElementById('RnPay').value);
+
+        const NumNurse = parseFloat(document.getElementById('nurses').value);
+        const NumDocter = parseFloat(document.getElementById('doctors').value);
+        const NumTech = parseFloat(document.getElementById('techs').value);
+        const NumRn = parseFloat(document.getElementById('rns').value);
+
         // Perform the calculation
+         
+        const payrollWeek = (NumNurse * NursePay)+(NumDocter * DocPay)+(NumTech * TechPay)+(NumRn * RnPay) * 30
+         
+        const NumEmployee = NumNurse + NumDocter + NumTech + NumRn
+         
+        const revenueWith = ((76 * 30) * NumEmployee) * 30 // 30 hours per week
+        const revenueWithout = ((76 * 8.5) * NumEmployee) * 30 // 30 hours per week
+
+         const profitWith = revenueWith - payrollWeek
+         const profitWithout = revenueWithout - payrollWeek
         const revenueDifference = withToolRevenue - withoutToolRevenue;
 
         // Display the result
+        document.getElementById('revenueWith').innerText = `Profit With EZ-Debride: $${profitWith.toFixed(2)}`;
+        document.getElementById('revenueWithout').innerText = `Profit Without EZ-Debride: $${profitWithout.toFixed(2)}`;
         document.getElementById('result').innerText = `Revenue Difference: $${revenueDifference.toFixed(2)}`;
     }
 </script>
